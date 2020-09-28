@@ -20,9 +20,9 @@ import copyWatch from 'rollup-plugin-copy-watch';
 import { terser } from 'rollup-plugin-terser';
 
 import typescript from 'rollup-plugin-typescript2';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from '@rollup/plugin-node-resolve';
-import pkg from './package.json';
+// import commonjs from 'rollup-plugin-commonjs';
+// import resolve from '@rollup/plugin-node-resolve';
+// import pkg from './package.json';
 import json from '@rollup/plugin-json';
 
 import parseArgs from 'minimist';
@@ -43,8 +43,8 @@ const plugins = [
     typescript: require('typescript'),
     tsconfigOverride: tsconfigOverride,
   }),
-  resolve(),
-  commonjs(),
+  // resolve(),
+  // commonjs(),
   json(),
 ];
 
@@ -86,15 +86,17 @@ if (demoMode) {
   );
 }
 
-export default {
-  input: 'src/index.ts',
-  output: [
-    {
-      file: pkg.module,
-      format: 'es',
-      sourcemap: sourceMap,
-    },
-  ],
-  external: [...Object.keys(pkg.peerDependencies || {})],
-  plugins: plugins,
-};
+export default [
+  {
+    input: 'src/index.ts',
+    output: [
+      {
+        file: 'dist/es/index.es.js',
+        format: 'es',
+        sourcemap: sourceMap,
+      },
+    ],
+    external: ['entities/lib/decode', 'fast-xml-parser/src/parser'],
+    plugins: plugins,
+  },
+];
