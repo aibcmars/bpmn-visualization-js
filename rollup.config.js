@@ -22,7 +22,7 @@ import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
 // import commonjs from 'rollup-plugin-commonjs';
 // import resolve from '@rollup/plugin-node-resolve';
-// import pkg from './package.json';
+import pkg from './package.json';
 import json from '@rollup/plugin-json';
 
 import parseArgs from 'minimist';
@@ -91,7 +91,7 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/es/index.js',
+        file: pkg.main,
         format: 'es',
         sourcemap: sourceMap,
       },
