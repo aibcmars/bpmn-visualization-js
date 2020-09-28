@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "main": "dist/es/index.ts",
+  "main": "./dist/es/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "all": "run-s clean lint lint-check build test",
