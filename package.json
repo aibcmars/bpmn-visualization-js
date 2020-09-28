@@ -13,8 +13,8 @@
   "scripts": {
     "all": "run-s clean lint lint-check build test",
     "clean": "rimraf build coverage dist",
-    "build": "rollup -c --config-build-distribution true",
-    "build-dev": "rollup -c",
+    "build": "rollup -c",
+    "prepare": "rollup -c --config-build-distribution true",
     "demo": "run-s demo:*",
     "demo:clean": "rimraf dist",
     "demo:build": "rollup -c --silent --environment demoMode:true",
