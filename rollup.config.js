@@ -91,7 +91,7 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/es/index.es.js',
+        file: 'dist/es/index.js',
         format: 'es',
         sourcemap: sourceMap,
       },
